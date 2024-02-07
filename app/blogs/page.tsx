@@ -11,7 +11,7 @@ import { json } from "stream/consumers";
 
 
 const fetchfromNotion = async() => {
-    const res = await fetch("https://chrysalis.vercel.app/api/blogsHolder", {next: {revalidate: 1}});
+    const res = await fetch("https://chrysalis-weld.vercel.app/api/blogsHolder", {next: {revalidate: 1}});
     const data = await res.json();
     return data.data
   }
