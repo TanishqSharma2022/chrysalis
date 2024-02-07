@@ -1,22 +1,22 @@
-// const fetchfromNotion = async (id: string) => {
-//   console.log(id);
-//   const res = await fetch(
-//     `http://localhost:3000/api/blogContent?pageId=${id}`,
-//     { next: { revalidate: 1 } }
-//   );
-//   const data = await res.json();
-//   return data.data;
-// };
+const fetchfromNotion = async (id: string) => {
+  console.log(id);
+  const res = await fetch(
+    `http://localhost:3000/api/blogContent?pageId=${id}`,
+    { next: { revalidate: 1 } }
+  );
+  const data = await res.json();
+  return data.data;
+};
 
 export default async function BlogPost({ params }: { params: { id: string } }) {
-//   const data = await fetchfromNotion(params.id);
+  const data = await fetchfromNotion(params.id);
 
   return (
     <>
       <div className="w-full flex justify-center h-full">
         <div className="w-[50%] h-full">
-          {/* {data.length == 0 && "Loading..."} */}
-          {/* <div className="w-full border h-full">
+          {data.length == 0 && "Loading..."}
+          <div className="w-full border h-full">
             {data &&
               data.map((blog: any) => {
                 return (
@@ -122,7 +122,7 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
                   </div>
                 );
               })}
-          </div> */}
+          </div>
         </div>
       </div>
     </>
