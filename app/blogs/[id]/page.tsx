@@ -1,7 +1,7 @@
 const fetchfromNotion = async (id: string) => {
   console.log(id);
   const res = await fetch(
-    `http://localhost:3000/api/blogContent?pageId=${id}`,
+    `https://chrysalis.vercel.app/api/blogContent?pageId=${id}`,
     { next: { revalidate: 1 } }
   );
   const data = await res.json();
