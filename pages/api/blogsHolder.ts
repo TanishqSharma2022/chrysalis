@@ -1,6 +1,6 @@
 import { cache } from 'react'
 
-import {notion} from "./notion";
+import notion from "./notion";
 import {Client} from '@notionhq/client';
 import type { NextApiResponse, NextApiRequest } from 'next';
 

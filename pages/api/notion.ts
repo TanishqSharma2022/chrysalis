@@ -10,4 +10,4 @@ const notion = new Client({ auth: notionSecret });
 
 
 
-export {notion};
+export default notion;
