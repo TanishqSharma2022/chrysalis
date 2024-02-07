@@ -7,10 +7,7 @@ import NotionBlocks from "notion-block-renderer";
 import { json } from "stream/consumers";
 
 
-const notionSecret = process.env.NOTION_SECRET;
-const notionDBID = process.env.NOTION_DATABASE_ID;
 
-const notion = new Client({ auth: notionSecret });
 
 
 const fetchfromNotion = async() => {
@@ -22,19 +19,17 @@ const fetchfromNotion = async() => {
 
 const Blogs = async() => {
 
-    // useEffect(() => {
+
 
     const data = await fetchfromNotion();
-    // console.log(data);
 
-    // }, []);
 
 
   return (
     <div className="w-full min-h-screen flex justify-center">
       <div className="md:w-[60%] border h-full p-12">
 
-        Blogs
+        <h1 className="text-center text-4xl py-6 capitalize font-bold">Find out awesome Blogs here!</h1>
 
         {/* {JSON.stringify(data, null, 2)} */}
       

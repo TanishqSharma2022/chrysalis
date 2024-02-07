@@ -1,14 +1,15 @@
+import Link from 'next/link';
 import React from 'react'
 
 
 const BlogCard = (blogCard: any) => {
-    console.log(blogCard)
+
   return (
     <>
-
+    <Link href={`/blogs/${blogCard.blogCard.id}`}>
     <div className='cursor-pointer hover:shadow-lg py-12 md:p-6 relative border rounded-xl mt-12' >
         <div className='absolute right-12 -top-6 shadow-lg bg-black text-white font-bold p-2 '>
-        <h1 className=''>{blogCard.blogCard.properties?.Category.multi_select[0].name}</h1>
+        <h1 className='font-mono uppercase text-sm'>{blogCard.blogCard.properties?.Category.multi_select[0].name}</h1>
         </div>
         <div className='grid grid-cols-1  md:grid-cols-3 gap-6'>
         <div className='col-span-2'>
@@ -21,6 +22,7 @@ const BlogCard = (blogCard: any) => {
         <img src={blogCard.blogCard.properties?.ThumbnailImage?.files[0].name} />
         </div>
     </div>
+    </Link>
     </>
   )
 }

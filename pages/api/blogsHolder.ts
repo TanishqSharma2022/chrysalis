@@ -13,7 +13,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     
-    const response = await notion.databases.query({ database_id: process.env.NOTION_DATABASE_ID });
+    const response = await notion.databases.query({ database_id: process.env.NOTION_DATABASE_ID,
+        filter:{
+            property: 'Published',
+            checkbox: {
+                equals: true
+            }
+        }
+    });
 
     res.status(200).json({data: response?.results});
 
