@@ -24,7 +24,7 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
         return(
           <div key={blog.id}>
             {blog.type == "heading_1" && <h1 className="font-sans font-bold text-4xl ">{blog.heading_1.rich_text[0]?.text.content}</h1>}
-            {blog.type == "heading_2" && <h1 className="font-sans text-xl ">{blog.heading_2.rich_text[0]?.text.content}</h1>}
+            {blog.type == "heading_2" && <h1 className="font-sans font-bold text-xl ">{blog.heading_2.rich_text[0]?.text.content}</h1>}
             {blog.type == "bulleted_list_item" && 
             <li className="font-sans text-xl ">
                 {/* {blog.bulleted_list_item.rich_text[0]?.text.content} */}
@@ -52,17 +52,17 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
                 </li>}
             {blog.type == "quote" && 
             <blockquote  className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50">
-            {blog.quote.rich_text.map((lines:any) => {
-                return(
-                    <a key={lines} className="text-xl italic font-medium leading-relaxed">
-                        "{lines.text.content}"
+            {/* {blog.quote.rich_text.map((lines:any) => {
+                return( */}
+                    <a key={blog.quote.rich_text[0]} className="text-xl italic font-medium leading-relaxed">
+                        `{blog.quote.rich_text[0].text.content}`
                     </a>
-                )
-            })}
+                {/* )
+            })} */}
 
             </blockquote>}
-            {blog.type == "video" && <iframe src={blog.video.external.url}></iframe>}
-            {blog.type == "image" && <img className="min-w-full w-full  aspect-[4/3] object-contain"   src={blog.image.file?.url || blog.image.external?.url} />}
+            {blog.type == "video" && <iframe className="min-w-full w-full  aspect-[16/9] object-contain" src={blog.video.external.url}></iframe>}
+            {blog.type == "image" && <img className="min-w-full w-full  aspect-[16/9] object-contain"   src={blog.image.file?.url || blog.image.external?.url} />}
 
 
 
@@ -78,7 +78,7 @@ export default async function BlogPost({ params }: { params: { id: string } }) {
                         ${lines.annotations.bold ? 'font-bold': ''}
                         ${lines.annotations.underline || lines.text.link?.url ? 'underline': ''}
                         ${lines.annotations.strikethrough ? 'line-through': ''}
-                        ${lines.annotations.color != 'default' ? `text-${lines.annotations.color}`: ''}
+                        ${lines.annotations.color != 'default' ? `text-${lines.annotations.color}-500`: ''}
                         
                         
                         
