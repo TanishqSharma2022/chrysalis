@@ -10,18 +10,18 @@ import { json } from "stream/consumers";
 
 
 
-const fetchfromNotion = async() => {
-    const res = await fetch("http://localhost:3000/api/blogsHolder", {next: {revalidate: 1}});
-    const data = await res.json();
-    return data.data
-  }
+// const fetchfromNotion = async() => {
+//     const res = await fetch("http://localhost:3000/api/blogsHolder", {next: {revalidate: 1}});
+//     const data = await res.json();
+//     return data.data
+//   }
 
 
 const Blogs = async() => {
 
 
 
-    const data = await fetchfromNotion();
+    // const data = await fetchfromNotion();
 
 
 
@@ -31,15 +31,14 @@ const Blogs = async() => {
 
         <h1 className="text-center text-4xl py-6 capitalize font-bold">Find out awesome Blogs here!</h1>
 
-        {/* {JSON.stringify(data, null, 2)} */}
       
-        {data && data.map((blogCard:any) => {
+        {/* {data && data.map((blogCard:any) => {
           return(
             <div key={blogCard.id}>
                 <BlogCard blogCard={blogCard} />
             </div>
           )
-        })}
+        })} */}
 
 
 </div>
